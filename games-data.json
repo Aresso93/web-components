@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Dark Souls",
+        "type": "action RPG",
+        "author": "Hidetaka Miyazaki",
+        "isMultiplayer": true,
+        "yop": 2011 
+    },
+
+    {
+        "title": "Street Fighter",
+        "type": "fighting game",
+        "author": "Capcom",
+        "isMultiplayer": true,
+        "yop": 1994
+    },
+
+    {
+        "title": "The Last of Us II",
+        "type": "action adventure",
+        "author": "Naughty Dog",
+        "isMultiplayer": false,
+        "yop": 2020
+    }
+
+]
