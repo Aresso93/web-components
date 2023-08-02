@@ -9,13 +9,14 @@ class SuperFooterComponent extends HTMLElement{
     
         connectedCallback(){
             this.shadowRoot.innerHTML = '<p>GAMINNNNNNNNNNNNNNNNNNNNNNG</>'
+            this.render();
         }
     
     
         render(){
 
             this.shadowRoot.innerHTML= `
-            <link rel="stylesheet" href="./web-components/super-footer-stylestyle.css">
+            <link rel="stylesheet" href="./web-components/super-footer-style.css">
             <p>AAAAAAAAAAAAAAAAAAA</p>`
 
         }

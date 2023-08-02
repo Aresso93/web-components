@@ -6,8 +6,15 @@ class SuperHeaderComponent extends HTMLElement {
   }
 
   //questa funzione ci dice cosa fare quando l'HTML riconosce il nostro web component, qui il super header
+
   connectedCallback() {
+    this.render()
+  }
+
+  render(){
+    this.shadowRoot.innerHTML= '';
     const style = document.createElement("style");
+
     style.innerHTML = `h1{color: ${this.getAttribute('title-color')}}`
     this.shadowRoot.appendChild(style);
 
@@ -20,7 +27,25 @@ class SuperHeaderComponent extends HTMLElement {
     this.shadowRoot.appendChild(h1);
     //this.shadowRoot.innerHTML = '<h1>GAMINGGGG</>'
   }
+
+
+  attributeChangedCallback(name, oldValue, newValue){
+
+    if (oldValue !== newValue) {
+      this.render()
+    }
+    
+  }
+  
+  static get observedAttribute(){
+    return ['title-color', 'super-title']
+  }
+
+
+
+
 }
+
 
 customElements.define("super-header", SuperHeaderComponent);
 //collega HTML e JS

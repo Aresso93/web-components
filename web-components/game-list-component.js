@@ -3,6 +3,7 @@ class GameListComponent extends HTMLElement{
     constructor(){
         super(); 
         this.attachShadow({mode: 'open'});
+        this.gamesArray = [];
         
         }
     
@@ -10,8 +11,19 @@ class GameListComponent extends HTMLElement{
         connectedCallback(){
             fetch('./games-data.json')
             .then(resp => resp.json())
-            .then(res => this.render(res));
+            .then(res =>{
+                this.gamesArray = res;
+                this.render(this.gamesArray)
+            })
         }
+
+        
+        disconnectedCallback(){
+
+
+        }
+
+
 
         render(games){
 
@@ -23,7 +35,10 @@ class GameListComponent extends HTMLElement{
                 const game = games[i];
                 
                 const cardComponent = document.createElement('game-card');
-                cardComponent.setAttribute('game-title', game.title);
+                cardComponent.addEventListener('card-clicked', (event) => this.removeGame(event.detail));
+                cardComponent.game = game;
+
+
                 mainContainer.appendChild(cardComponent);
 
             }
@@ -31,7 +46,17 @@ class GameListComponent extends HTMLElement{
 
         }
 
+
+        removeGame(title){
+
+            this.gamesArray = this.gamesArray.filter(game => game.title !== title);
+            this.render(this.gamesArray);
+        }
+
+
     }
     
+  
+
     customElements.define('games-list', GameListComponent);
     //collega HTML e JS

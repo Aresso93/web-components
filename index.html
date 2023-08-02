@@ -12,7 +12,8 @@
     <!-- questi due tag non esistono, ma sono trattati come dei div dal browser
     se creo un tag HTML che non esiste, c'è bisogno di mettere un - tra le parole del mio tag inesistente 
     stessa cosa se creo degli attributi nuovi-->
-    <super-header super-title="gioconi STEVE" title-color="green"></super-header>
+    <super-header id="header" super-title="gioconi STEVE" title-color="green"></super-header>
+    <button onclick="changeTitleColor()">BOTTONE</button>
     <games-list>
 
     </games-list>
@@ -24,3 +25,4 @@
 <script src="./web-components/super-footer-component.js"></script>
 <script src="./main.js"></script>
 </html>
+
